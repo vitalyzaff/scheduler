@@ -19,6 +19,11 @@ const days = [
     name: "Wednesday",
     spots: 0,
   },
+  {
+    id: 4,
+    name: "Thursday",
+    spots: 7,
+  },
 ];
 
 export default function Application(props) {
@@ -34,6 +39,7 @@ export default function Application(props) {
 <hr className="sidebar__separator sidebar--centered" />
 <nav className="sidebar__menu">
 <DayList
+  key={days.id}
   days={days}
   day={day}
   setDay={setDay}
