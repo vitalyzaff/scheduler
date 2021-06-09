@@ -6,7 +6,6 @@ export default function Form(props) {
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [name, setName] = useState(props.name || "");
   const handleChange = event => {
-    console.log(event.target.value)
     const value = event.target.value
     setName(value)
   }
