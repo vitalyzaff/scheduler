@@ -3,8 +3,10 @@ import axios from "axios";
 
 import "components/Application.scss";
 import DayList from "components/DayList";
-import Appointment from "components/Appointments"
-import { getAppointmentsForDay, getInterview } from "../helpers/selectors"
+import Appointment from "components/Appointments";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
+
+
 
 
 export default function Application(props) {
@@ -17,12 +19,14 @@ export default function Application(props) {
   const dailyAppointments = getAppointmentsForDay(state, state.day)
   const AppointmentList = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
+    const interviewers = getInterviewersForDay (state, state.day)
     return (
       <Appointment 
       key={appointment.id}
       id={appointment.id}
       time={appointment.time}
       interview={interview}
+      interviewers={interviewers}
       />
     )  
   })

@@ -19,3 +19,16 @@ export function getInterview(state, interview) {
   } 
   return null;
 }
+
+export function getInterviewersForDay(state, day) {
+  const array = [];
+  const specificDay = state.days.filter(thisDay => thisDay.name === day);
+  if (specificDay.length > 0) {
+  const interviewers = Object.keys(state.interviewers).map(Number);
+  const match = interviewers.filter(element => specificDay[0].interviewers.includes(element))
+  for (let i of match) {
+    array.push(state.interviewers[i])
+  }
+}
+  return array;
+}
