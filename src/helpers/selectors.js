@@ -8,7 +8,7 @@ export function getAppointmentsForDay(state, day) {
   for (let i of match) {
     array.push(state.appointments[i])
   }
-}
+} 
   return array;
 }
 
