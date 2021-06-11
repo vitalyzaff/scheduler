@@ -1,56 +1,23 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+
 
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointments";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
+import useApplicationData from "../hooks/useApplicationData"
 
 
 
 
 export default function Application(props) {
-  const [state, setState] = useState({
-    day: "Monday",
-    days: [],
-    appointments: {},
-    interviewers: {}
-  });
-  function bookInterview(id, interview) {
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview }
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
-    return axios.put(`/api/appointments/${id}`, appointment)
-    .then(() => {
-      setState({
-        ...state,
-        appointments
-      });
-    })
-  };
-
-  function cancelInterview(id, interview) {
-    const appointment = {
-      ...state.appointments[id],
-      interview: null
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
-    return axios.delete(`/api/appointments/${id}`, appointment)
-    .then(() => {
-      setState({
-        ...state,
-        appointments
-      });
-    })
-  }
+  
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  } = useApplicationData();
 
   const dailyAppointments = getAppointmentsForDay(state, state.day)
   const AppointmentList = dailyAppointments.map(appointment => {
@@ -68,17 +35,7 @@ export default function Application(props) {
       />
     )  
   })
-  const setDay = day => setState({ ...state, day });
-  useEffect(() => {
-    Promise.all([
-      axios.get('/api/days'),
-      axios.get('/api/appointments'),
-      axios.get('/api/interviewers')
-    ]).then((all) => {
-      const [days, appointments, interviewers] = all;
-      setState(prev => ({...prev, days: days.data, appointments: appointments.data, interviewers: interviewers.data}));
-    });
-  }, [])
+
   return (
     <main className="layout">
       <section className="sidebar">
