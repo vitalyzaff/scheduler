@@ -15,11 +15,21 @@ The app allowes you to book, modify and delete appointments.
 
 ## App Features 
 
-!["Saving an appointment"] (docs/2021-06-16 15.30.47.gif)
+
+
+
+
+
+
 - User can select certain day of the week
+!["Selecting Certain Day"](https://github.com/vitalyzaff/scheduler/blob/master/docs/certain-day.gif)
 - User can add an appointment, type in the name and specify Interviewer 
-- User can delete appointments
+!["Adding Interview"](https://github.com/vitalyzaff/scheduler/blob/master/docs/add-interview.gif)
 - User can modify appointments
+!["Modifying Interview"](https://github.com/vitalyzaff/scheduler/blob/master/docs/edit-interview.gif)
+- User can delete appointments
+!["Deleting Interview](https://github.com/vitalyzaff/scheduler/blob/master/docs/delete-interview.gif)
+
 
 
 ## Setup
