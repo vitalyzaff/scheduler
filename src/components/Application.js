@@ -11,7 +11,7 @@ import useApplicationData from "../hooks/useApplicationData"
 
 
 export default function Application(props) {
-  
+  // using custom made hooks from useApplicationData
   const {
     state,
     setDay,
@@ -21,22 +21,24 @@ export default function Application(props) {
 
   const interviewers = getInterviewersForDay (state, state.day)
   const dailyAppointments = getAppointmentsForDay(state, state.day)
+  
+  // rendering and returning the list of appointments
+  
   const AppointmentList = dailyAppointments.map(appointment => {
-    const interview = getInterview(state, appointment.interview);
-
-    return (
-      <Appointment 
-      key={appointment.id}
-      id={appointment.id}
-      time={appointment.time}
-      interview={interview}
-      interviewers={interviewers}
-      bookInterview={bookInterview}
-      cancelInterview={cancelInterview}
-      />
-    )  
-  })
-
+      const interview = getInterview(state, appointment.interview);
+      return (
+        <Appointment 
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+        interviewers={interviewers}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+        />
+      )  
+      })
+// rendering the fron page with all available data
   return (
     <main className="layout">
       <section className="sidebar">

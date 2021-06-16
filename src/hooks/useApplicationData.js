@@ -11,6 +11,7 @@ export default function useApplicationData() {
   });
   const setDay = day => setState({ ...state, day });
 
+  // uodating spots functionality, so when user submits new appointment, spots automatically update
   function updateSpots(state) {
     const dayToUpdate = state.day;
     const dayObj = state.days.find(day => day.name === dayToUpdate);
@@ -25,6 +26,7 @@ export default function useApplicationData() {
     return state
   }
 
+  // custom hook to book a specified interview
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -39,7 +41,7 @@ export default function useApplicationData() {
       setState(updateSpots({ ...state, appointments }))
     })
   };
-
+  // custom hook to delete a specified interview
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
@@ -54,7 +56,7 @@ export default function useApplicationData() {
       setState(updateSpots({ ...state, appointments }))
     })
   }
-
+// useEffect to request data from api server
     useEffect(() => {
     Promise.all([
       axios.get('/api/days'),

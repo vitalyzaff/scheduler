@@ -1,5 +1,6 @@
 import React from "react";
 
+// show component to display already booked interview 
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">

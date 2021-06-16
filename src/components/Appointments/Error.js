@@ -1,5 +1,6 @@
 import React from "react";
 
+// error component when users couldn't delete/save a certain appointment
 export default function Error(props) {
   return (
     <main className="appointment__card appointment__card--error">
@@ -15,4 +16,4 @@ export default function Error(props) {
   />
 </main>
   );
-}
+};

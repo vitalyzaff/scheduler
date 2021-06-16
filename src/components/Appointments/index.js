@@ -9,7 +9,9 @@ import Form from "./Form";
 import Confirm from "./Confirm";
 import useVisualMode from "../../hooks/useVisualMode";
 
+// appointment component
 export default function Appointment(props) {
+  // declaring state variables
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -19,10 +21,12 @@ export default function Appointment(props) {
   const EDIT = "EDIT";
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
+  
+  // using custom hook useVisualMode to export transition and back functions
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  
+  // save function to save input values and create new appointment 
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -33,7 +37,7 @@ export default function Appointment(props) {
     .then(() => transition(SHOW))
     .catch((error) => transition(ERROR_SAVE, true))
   }
-
+// delete function to delete specific appointment
   function destroy(name, interviewer) {
     const interview = {
       student: name,
@@ -44,7 +48,7 @@ export default function Appointment(props) {
     .then(() => transition(EMPTY))
     .catch((error) => transition(ERROR_DELETE, true))
   }
-  
+  // rendering whole appointment component
   return (
   <article className="appointment" data-testid="appointment">
     <Header 

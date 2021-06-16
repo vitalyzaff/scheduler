@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types';
 import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss";
-
+// list of interviews in a given day
 function InterviewerList(props) {
+  // accessing the list of all interviewers
   const interviewers = props.interviewers.map((interviewer) => {
     return <InterviewerListItem
     key={interviewer.id}
@@ -13,6 +14,7 @@ function InterviewerList(props) {
     setInterviewer={event => props.setInterviewer(interviewer.id)} 
     />
   }) 
+  // returning rendered interviewerList component
   return (
     <section className={interviewers}>
       <h4 className="interviewers__header text--light">Interviewer</h4>
@@ -20,7 +22,6 @@ function InterviewerList(props) {
     </section>
   );
 }
-
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import DayListItem from "./DayListItem";
 
+// list of days with a number of available spots
 export default function DayList(props) {
   const days = props.days.map((day) => {
     return <DayListItem 

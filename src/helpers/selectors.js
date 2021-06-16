@@ -1,4 +1,4 @@
-
+// helper function to display all appointments for a specified day
 export function getAppointmentsForDay(state, day) {
   const array = [];
   const specificDay = state.days.filter(thisDay => thisDay.name === day);
@@ -11,7 +11,7 @@ export function getAppointmentsForDay(state, day) {
 } 
   return array;
 }
-
+// helper function to get a specific interview object
 export function getInterview(state, interview) {
   if (interview) {
     const obj = { student: interview.student, interviewer: state.interviewers[interview.interviewer]}
@@ -19,7 +19,7 @@ export function getInterview(state, interview) {
   } 
   return null;
 }
-
+// helper function to display all interviews for a specified day
 export function getInterviewersForDay(state, day) {
   const array = [];
   const specificDay = state.days.filter(thisDay => thisDay.name === day);
