@@ -15,24 +15,26 @@ The app allowes you to book, modify and delete appointments.
 
 ## App Features 
 
-
-
-
-
-
-
 - User can select certain day of the week
+
 !["Selecting Certain Day"](https://github.com/vitalyzaff/scheduler/blob/master/docs/certain-day.gif)
+
 - User can add an appointment, type in the name and specify Interviewer 
+
 !["Adding Interview"](https://github.com/vitalyzaff/scheduler/blob/master/docs/add-interview.gif)
+
 - User can modify appointments
+
 !["Modifying Interview"](https://github.com/vitalyzaff/scheduler/blob/master/docs/edit-interview.gif)
+
 - User can delete appointments
+
 !["Deleting Interview](https://github.com/vitalyzaff/scheduler/blob/master/docs/delete-interview.gif)
 
 
 
 ## Setup
+ 
  1. Fork and clone repo to your local machine.
  2. Install dependencies with `npm install`.
  3. Start the server using `npm start` command. 
@@ -57,3 +59,12 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Dependencies
+
+- axios ^0.21.1
+- classnames ^2.3.1
+- normalize.css ^8.0.1
+- react ^16.9.0
+- react-dom ^16.9.0
+- react-scripts 3.0.0
